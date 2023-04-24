@@ -1,0 +1,74 @@
+:root {
+  --font-default: 'Manrope', sans-serif;
+  --dark: #040836;
+  --dark-secondary: #202942;
+  --color-primary: #ff014f;
+  --color-primary2: #232323;
+  --color-secondary: #00c0ff;
+  --color-heading: #202942;
+  --color-heading2: #202942cc;
+  --color-paragraph: #666666;
+  --box-shadow-primary: 1px 4px 20px -2px rgba(0, 0, 0, 0.1);
+  --box-shadow-secondary: 0 20px 50px rgba(0, 0, 0, 0.1);
+  --box-shadow-regular: 0px 2px 12px 0px #e7e7e7;
+  --box-shadow-extra: 0 5px 50px 0 rgba(0, 0, 0, 0.15);
+  --bg-gray: #edf5ff;
+  --bg-gradient: linear-gradient(45deg, #ff014f 20%, #992884 50%);
+  --nav-height: 75px;
+  --nav-height-mobile: 70px;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'LEMON_JELLY';
+  src: url('./assets/fonts/LemonJellyPersonalUse-dEqR.ttf');
+}
+
+@font-face {
+  font-family: 'RAINBOW_BRIDGE';
+  src: url('./assets/fonts/RainbowBridgePersonalUse-ERae.ttf');
+}
+
+@font-face {
+  font-family: 'ROAD_BLAST';
+  src: url('./assets/fonts/RoadBlast-6Y41x.ttf');
+}
+
+@layer components {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold text-[var(--color-heading)] leading-snug tracking-normal;
+  }
+  section {
+    @apply py-8 px-6 md:px-8 min-h-screen w-full;
+  }
+  .section-container {
+    @apply max-w-[1000px] mx-auto;
+  }
+  a {
+    @apply text-[#232323];
+  }
+  p {
+    @apply text-[17px];
+  }
+  button:active,
+  .nav-link:active {
+    @apply scale-90;
+  }
+}
+
+body {
+  font-family: var(--font-default);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 26px;
+  background: #fff;
+  color: var(--color-paragraph);
+}
