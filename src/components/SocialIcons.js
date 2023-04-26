@@ -8,28 +8,28 @@ const SOCIAL_LINKS = [
     label: 'LinkedIn',
     bgColor: 'bg-blue-600',
     textColor: 'text-blue-600',
-    IconEl: <FaLinkedin size={22} />,
+    IconEl: ({ size }) => <FaLinkedin size={size} />,
     to: '',
   },
   {
     label: 'Github',
     bgColor: 'bg-[#333333]',
     textColor: 'text-[#333333]',
-    IconEl: <FaGithub size={22} />,
+    IconEl: ({ size }) => <FaGithub size={size} />,
     to: '',
   },
   {
     label: 'Email',
     bgColor: 'bg-[#6fc2b0]',
     textColor: 'text-[#6fc2b0]',
-    IconEl: <HiOutlineMail size={22} />,
+    IconEl: ({ size }) => <HiOutlineMail size={size} />,
     to: '',
   },
   {
     label: 'Resume',
     bgColor: 'bg-[#565f69]',
     textColor: 'text-[#565f69]',
-    IconEl: <BsFillPersonLinesFill size={22} />,
+    IconEl: ({ size }) => <BsFillPersonLinesFill size={size} />,
     to: '',
   },
 ];
@@ -40,13 +40,16 @@ const SocialIconsTemplate = ({
   linkClass,
   iconClass,
   labelClass,
+  iconSize = 22,
 }) => {
   return (
     <ul className={containerClass()}>
       {SOCIAL_LINKS.map(({ label, bgColor, textColor, IconEl, to }, index) => (
         <li key={label} className={itemClass(bgColor, index)}>
           <Link to={to} className={linkClass && linkClass()}>
-            <span className={iconClass && iconClass(textColor)}>{IconEl}</span>
+            <span className={iconClass && iconClass(textColor)}>
+              <IconEl size={iconSize} />
+            </span>
           </Link>
           <span className={labelClass && labelClass()}>{label}</span>
         </li>
@@ -59,7 +62,7 @@ export const SocialIconsDesktop = ({ className }) => {
   return (
     <SocialIconsTemplate
       containerClass={() =>
-        'hidden  lg:block fixed top-1/2 right-0 -translate-y-1/2'
+        'hidden  lg:block fixed top-1/2 right-0 -translate-y-1/2 z-30'
       }
       itemClass={(
         bgColor,
@@ -95,6 +98,7 @@ export const SocialIcons = ({ className }) => {
         shadow-[var(--box-shadow-regular)]-500/50 cursor-pointer hover:scale-125 active:scale-95 transition-all duration-200 ease-in-out`}
         iconClass={(textColor) => `${textColor}`}
         labelClass={() => `hidden`}
+        iconSize={19}
       />
     </>
   );

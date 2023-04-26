@@ -3,7 +3,7 @@ const Button = (props) => {
 
   return (
     <button
-      className={`rounded-full py-2 px-6 sm:py-3 sm:px-7 font-bold leading-6 text-white  capitalize inline-flex justify-center items-center text-center align-middle select-none border-solid border-2 
+      className={`rounded-full py-[7px] px-6 md:py-[10px] lg:px-8 font-bold leading-6 text-white  capitalize inline-flex justify-center items-center text-center align-middle select-none border-solid border-2 
       border-[var(--color-primary)] overflow-hidden transition-all duration-300  relative z-10
       
       before:absolute before:left-0 before:bottom-0 before:w-0 before:h-full 

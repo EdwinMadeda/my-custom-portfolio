@@ -5,6 +5,7 @@
   --color-primary: #ff014f;
   --color-primary2: #232323;
   --color-secondary: #00c0ff;
+  --color-accent: #992884a3;
   --color-heading: #202942;
   --color-heading2: #202942cc;
   --color-paragraph: #666666;
@@ -12,6 +13,7 @@
   --box-shadow-secondary: 0 20px 50px rgba(0, 0, 0, 0.1);
   --box-shadow-regular: 0px 2px 12px 0px #e7e7e7;
   --box-shadow-extra: 0 5px 50px 0 rgba(0, 0, 0, 0.15);
+  --bg-white-alt: #fdfdfd;
   --bg-gray: #edf5ff;
   --bg-gradient: linear-gradient(45deg, #ff014f 20%, #992884 50%);
   --nav-height: 75px;
@@ -47,11 +49,27 @@
     @apply font-bold text-[var(--color-heading)] leading-snug tracking-normal;
   }
   section {
-    @apply py-8 px-6 md:px-8 min-h-screen w-full;
+    @apply py-8 px-6 md:px-8 w-full;
   }
+
+  section.full-screen {
+    @apply min-h-screen;
+  }
+
   .section-container {
-    @apply max-w-[1000px] mx-auto;
+    @apply max-w-[1000px] mx-auto  h-full w-full flex flex-col justify-center items-center py-5;
   }
+  .section-title {
+    @apply font-black text-2xl text-[var(--color-primary)] uppercase px-1 mb-5 /*border-b-4 border-[var(--color-primary)]*/;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background: var(--bg-gradient);
+    background-clip: text;
+  }
+  .section-sub-title {
+    @apply text-2xl;
+  }
+
   a {
     @apply text-[#232323];
   }

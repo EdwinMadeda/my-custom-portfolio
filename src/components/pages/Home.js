@@ -1,17 +1,15 @@
 import { BsFillArrowRightCircleFill } from 'react-icons/bs';
-import Button from './Button';
-import banner3 from '../assets/images/banner-3.JPG';
-import { SocialIcons } from './SocialIcons';
+import Button from '../Button';
+import { SocialIcons } from '../SocialIcons';
 
 const Home = () => {
   return (
     <section
       name="home"
-      className="pt-[var(--nav-height)]
-      bg-center bg-fixed bg-cover bg-no-repeat w-full min-h-screen"
-      style={{ backgroundImage: `url(${banner3})` }}
+      className="pt-[var(--nav-height)] pb-7
+      bg-center bg-fixed bg-cover bg-no-repeat full-screen"
     >
-      <div className="section-container h-full w-full flex flex-col justify-center items-start">
+      <div className="section-container items-start">
         <p className="mt-11 text-[var(--color-primary)] my-2 leading-7">
           Hi, my name is
         </p>

@@ -1,8 +1,8 @@
-import Logo from '../Logo';
+import Logo from '../../Logo';
 import { useEffect, useState } from 'react';
 import HamburgerIcon from './HamburgerIcon';
 import NavLinks from './NavLinks';
-import { SocialIconsDesktop } from '../SocialIcons';
+import { SocialIconsDesktop } from '../../SocialIcons';
 
 const Header = () => {
   const [isHamburgerActive, setIsHamburgerActive] = useState(false);
