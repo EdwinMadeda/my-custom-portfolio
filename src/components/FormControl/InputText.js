@@ -7,6 +7,7 @@ const InputText = ({
   label,
   labelVisible = false,
   errors,
+  clearErrors,
   register = () => {},
   watch = () => null,
   rules = {},

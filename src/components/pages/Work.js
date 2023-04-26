@@ -49,7 +49,7 @@ const Work = () => {
                 className="absolute top-0 left-0 w-full h-full object-contain rounded-lg"
               />
               <div
-                className="absolute left-0 bottom-0 z-10 w-full h-0 bg-[var(--dark)] opacity-80 rounded-lg
+                className="absolute left-0 bottom-0 z-10 w-full h-0 bg-[var(--dark)] opacity-50 rounded-lg
                 group-hover:h-full transition-all duration-500 ease-in-out"
               ></div>
               <div

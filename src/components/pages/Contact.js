@@ -2,17 +2,33 @@ import { useForm } from 'react-hook-form';
 import Button from '../Button';
 import InputText from '../FormControl/InputText';
 import InputTextArea from '../FormControl/InputTextArea';
+import InputTel from '../FormControl/InputTel';
+import axios from 'axios';
 
 const Contact = () => {
+  const { REACT_APP_GET_FORM_URL } = process.env;
+
   const {
     register,
+    setError,
+    clearErrors,
+    setValue,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    axios
+      .post(
+        REACT_APP_GET_FORM_URL,
+        {
+          ...data,
+        },
+        { headers: { Accept: 'application/json' } }
+      )
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -26,6 +42,7 @@ const Contact = () => {
             background: 'rgba(255, 255, 255, 0.5)',
             boxShadow: 'var(--box-shadow-extra)',
           }}
+          id="js-contact-form"
         >
           <h3 className="section-sub-title">Let's talk</h3>
           <p className="mt-2 mb-1">
@@ -41,6 +58,7 @@ const Contact = () => {
               placeholder="eg. Jane Doe"
               className="col-span-2"
               errors={errors}
+              clearErrors={clearErrors}
               register={register}
               watch={watch}
               rules={{
@@ -51,7 +69,7 @@ const Contact = () => {
                 },
                 pattern: {
                   value:
-                    /^([a-zA-Z]{2,}\s[a-zA-Z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{1,})?)/,
+                    /^([a-zA-Z]{2,}\s?([a-zA-Z]{1,}'?-?[a-zA-Z]{2,})\s?([a-zA-Z]{1,})?)/,
                   message: 'Name is Invalid',
                 },
               }}
@@ -60,10 +78,11 @@ const Contact = () => {
               type="email"
               name="email"
               label="Email"
-              labelVisible={false}
+              labelVisible={true}
               placeholder="eg. example@domain.com"
-              className=""
+              className="col-span-2 lg:col-span-1"
               errors={errors}
+              clearErrors={clearErrors}
               register={register}
               watch={watch}
               rules={{
@@ -74,29 +93,42 @@ const Contact = () => {
                 },
               }}
             />
-            <InputText
+            <InputTel
               type="tel"
               name="phone"
               label="Phone"
-              labelVisible={false}
-              placeholder="Phone"
-              className=""
+              labelVisible={true}
+              placeholder="eg. Phone"
+              className="col-span-2 lg:col-span-1"
               errors={errors}
+              clearErrors={clearErrors}
               register={register}
               watch={watch}
+              setError={setError}
               rules={{
-                pattern: {
-                  value: /^\+[1-9]\d{1,14}$/,
-                  message: 'Invalid Phone Number',
+                minLength: {
+                  value: 9,
+                  message: 'Number should be at least 9 characters',
                 },
+                maxLength: {
+                  value: 15,
+                  message: "Number shouldn't exceed 15 characters",
+                },
+                // pattern: {
+                //   value: /^\+(?:[0-9] ?){6,14}[0-9]$/,
+                //   message: 'Phone number is Invalid',
+                // },
               }}
+              setValue={setValue}
             />
+
             <InputTextArea
               name="msg"
               label="Message"
               labelVisible={true}
               placeholder="Write something..."
               errors={errors}
+              clearErrors={clearErrors}
               className="col-span-2"
               register={register}
               watch={watch}

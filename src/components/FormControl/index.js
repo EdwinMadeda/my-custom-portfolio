@@ -1,4 +1,5 @@
 const FormControl = ({
+  id = '',
   name,
   label,
   labelVisible = false,
@@ -9,23 +10,26 @@ const FormControl = ({
 }) => {
   return (
     <div
+      id={id}
       className={`flex flex-col-reverse justify-center items-start w-full ${className}`}
     >
-      {children}
+      <p
+        className={`text-[red] text-sm p-1  ${
+          Boolean(errors[name]) ? 'block' : 'hidden'
+        }`}
+      >
+        {errors[name]?.message}
+      </p>
 
-      {errors[name] ? (
-        <p className="text-[red] text-sm">*{errors[name]?.message}</p>
-      ) : (
-        <label
-          className={`${
-            // (!Boolean(watch(name)) || !labelVisible) && 'hidden'
-            !Boolean(watch(name)) ? (!labelVisible ? 'hidden' : '') : ''
-          } peer-focus:block font-bold py-1 text-[var(--color-heading)]`}
-          htmlFor={name}
-        >
-          {label}
-        </label>
-      )}
+      {children}
+      <label
+        className={`${
+          !labelVisible ? (!Boolean(watch(name)) ? 'hidden' : '') : ''
+        } peer-focus:block font-bold pt-1 text-[var(--color-heading)]`}
+        htmlFor={name}
+      >
+        {label}
+      </label>
     </div>
   );
 };

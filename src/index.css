@@ -80,6 +80,27 @@
   .nav-link:active {
     @apply scale-90;
   }
+
+  #iti-1__country-listbox {
+    @apply rounded mt-[2px];
+    background: rgba(255, 255, 255, 0.95);
+  }
+  .iti__country {
+    @apply w-full;
+  }
+  .iti__country-name {
+    @apply flex flex-wrap;
+  }
+}
+
+.iti__flag {
+  background-image: url('./assets/images/flags.png');
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .iti__flag {
+    background-image: url('./assets/images/flags@2x.png');
+  }
 }
 
 body {
