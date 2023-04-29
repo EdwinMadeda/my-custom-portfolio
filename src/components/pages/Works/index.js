@@ -8,7 +8,8 @@ const Work = () => {
   return (
     <section
       name="works"
-      className="py-10 bg-[var(--bg-white-alt)]"
+      className=""
+      /*py-10 bg-[var(--bg-white-alt)]*/
       // style={{ background: 'rgb(4, 8, 54,.4)' }}
     >
       <div className="section-container items-start md:items-center">
@@ -22,11 +23,14 @@ const Work = () => {
               group/thumbnail thumbnail"
               style={{ boxShadow: 'var(--box-shadow-extra)' }}
             >
-              <figure className="rounded-lg object-contain w-full h-full bg-white">
+              <figure
+                className="rounded-lg object-contain w-full h-full bg-white 
+              dark:bg-[var(--dark-secondary)]"
+              >
                 <img
                   src={thumbnail}
                   alt="thumbnail"
-                  className="rounded w-full h-full object-contain bg-white"
+                  className="rounded w-full h-full object-contain bg-white dark:bg-[var(--dark-secondary)]"
                 />
               </figure>
               <div

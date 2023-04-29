@@ -7,7 +7,7 @@ const Skills = () => {
 
   return (
     <>
-      <section name="skills" className="py-10 bg-[var(--bg-gray)]">
+      <section name="skills" className="" /*py-10 bg-[var(--bg-gray)]*/>
         <div className="section-container items-start">
           <h2 className="section-title ">Skills</h2>
           <h3 className="section-sub-title">
@@ -17,9 +17,9 @@ const Skills = () => {
             {SKILLS.map(({ label, img }) => (
               <div
                 key={label}
-                className="hover:scale-110 duration-500 bg-white rounded-lg p-5 
+                className="hover:scale-110 duration-500 bg-white dark:bg-[var(--dark-secondary)] rounded-lg p-5 
                 flex flex-col justify-center items-center"
-                style={{ boxShadow: '0 25px 70px rgb(0 0 0 / 7%)' }}
+                style={{ boxShadow: 'var(--box-shadow-extra)' }}
               >
                 <img src={img} alt={`${label} Icon`} className="w-10 mx-auto" />
                 <h4 className="mt-2 cursor-default">{label}</h4>

@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import FormControl from '.';
+import Store from '../../contexts/Store';
 
 const InputTel = ({
   name,
@@ -114,6 +115,8 @@ const InputTel = ({
     }
   };
 
+  const { setThemeVariant } = useContext(Store);
+
   return (
     <FormControl
       name={name}
@@ -129,10 +132,15 @@ const InputTel = ({
         name={name}
         placeholder={labelVisible ? placeholder : label}
         style={{
-          background: 'rgba(255, 255, 255, 0.5)',
+          background: setThemeVariant({
+            light: 'rgba(255, 255, 255, 0.5)',
+            dark: 'rgba(0, 0, 0, 0.2)',
+          }),
           boxShadow: 'var(--box-shadow-extra)',
         }}
         className="px-3 py-3  w-full rounded accent-[var(--color-accent)] peer
+         outline-none 
+         border-2 border-transparent focus:border-[var(--color-accent)]
          focus:placeholder:text-transparent"
         {...register(name, { ...rules, onChange, onBlur })}
       />

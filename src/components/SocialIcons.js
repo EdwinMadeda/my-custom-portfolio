@@ -94,8 +94,8 @@ export const SocialIcons = ({ className }) => {
         containerClass={() =>
           `mx-auto flex space-x-6 sm:space-x-11 ${className}`
         }
-        itemClass={() => `flex justify-center items-center h-[40px] w-[40px]  sm:h-[50px] sm:w-[50px] rounded-[50%] bg-white shadow-sm 
-        shadow-[var(--box-shadow-regular)]-500/50 cursor-pointer hover:scale-125 active:scale-95 transition-all duration-200 ease-in-out`}
+        itemClass={() => `flex justify-center items-center h-[40px] w-[40px]  sm:h-[50px] sm:w-[50px] rounded-[50%] bg-white shadow-light
+        cursor-pointer hover:scale-125 active:scale-95 transition-all duration-200 ease-in-out`}
         iconClass={(textColor) => `${textColor}`}
         labelClass={() => `hidden`}
         iconSize={19}

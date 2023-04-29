@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext, useEffect, useReducer } from 'react';
 import HTML from '../assets/images/html.png';
 import CSS from '../assets/images/css.png';
 import JavaScript from '../assets/images/javascript.png';
@@ -18,6 +18,7 @@ import Marivi_Pazos from '../assets/images/testimonial_avatars/marivi-pazos-cvpk
 // import Seth_Doyle from '../assets/images/testimonial_avatars/seth-doyle-vmBik4xv27s-unsplash.jpg';
 
 import workImg from '../assets/images/works-thumbnails/workImg.jpeg';
+import useTheme from '../customHooks/useTheme';
 
 const SKILLS = [
   { label: 'HTML', img: HTML },
@@ -105,16 +106,53 @@ const WORKS = [
   },
 ];
 
+const THEME = localStorage.theme ?? 'light';
+
+const setTheme = () => {
+  document.documentElement.classList[
+    localStorage.theme === 'dark' || !('theme' in localStorage)
+      ? 'add'
+      : 'remove'
+  ]('dark');
+};
+
 const Store = createContext();
 
-const initialValues = {
-  SKILLS,
-  WORKS,
-  TESTIMONIALS,
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'resetTheme': {
+      const { THEME } = state;
+      const selectTheme = THEME !== 'dark' ? 'dark' : 'light';
+      localStorage.theme = selectTheme;
+      setTheme();
+
+      return { ...state, THEME: selectTheme };
+    }
+    default:
+      return state;
+  }
 };
 
 export const StoreProvider = ({ children }) => {
-  return <Store.Provider value={initialValues}>{children}</Store.Provider>;
+  const [state, dispatch] = useReducer(reducer, {
+    THEME,
+    SKILLS,
+    WORKS,
+    TESTIMONIALS,
+  });
+
+  const setThemeVariant = ({ light, dark }) =>
+    state.THEME === 'light' ? light : state.THEME === 'dark' ? dark : '';
+
+  useEffect(() => {
+    setTheme();
+  }, []);
+
+  return (
+    <Store.Provider value={{ ...state, setThemeVariant, dispatch }}>
+      {children}
+    </Store.Provider>
+  );
 };
 
 export default Store;

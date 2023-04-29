@@ -25,7 +25,7 @@ const FormControl = ({
       <label
         className={`${
           !labelVisible ? (!Boolean(watch(name)) ? 'hidden' : '') : ''
-        } peer-focus:block font-bold pt-1 text-[var(--color-heading)]`}
+        } peer-focus:block font-bold pt-1 text-[var(--color-heading)] dark:text-white`}
         htmlFor={name}
       >
         {label}

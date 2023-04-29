@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import Store from '../../../contexts/Store';
-import BannerOverlay3 from '../../BannerOverlay3';
+import BannerOverlay from '../../BannerOverlay';
 
-const Single = () => {
+const SingleWork = () => {
   const { slug } = useParams();
 
   const { WORKS } = useContext(Store);
@@ -13,22 +13,25 @@ const Single = () => {
 
   return (
     <main className="pt-[var(--nav-height)] min-h-screen flex flex-col justify-start items-center">
-      <figure className="fixed top-[var(--nav-height)] left-1/2 -translate-x-1/2 w-full -z-10">
-        <img
-          src={thumbnail}
-          alt="thumbnail"
-          className="w-full h-full object-cover"
-        />
-      </figure>
-      <section className="min-h-[40vh] relative z-0 flex justify-start items-end">
+      <section
+        className="min-h-[250px] md:min-h-[300px] 
+      relative z-0 flex justify-start items-end overflow-hidden"
+      >
         <div className="max-w-[1000px] mx-auto w-full">
           <h1 className="relative z-10 text-white text-2xl uppercase">
             {name}
           </h1>
         </div>
-        <div className="bg-[var(--dark)] opacity-50 absolute top-0 left-0 w-full h-full"></div>
+        <div className="bg-[var(--dark)] opacity-30 absolute top-0 left-0 w-full h-full"></div>
+        <figure className="w-full absolute top-0 left-0 -z-10">
+          <img
+            src={thumbnail}
+            alt="thumbnail"
+            className="w-full h-full object-cover"
+          />
+        </figure>
       </section>
-      <section className="bg-white flex-1">
+      <section className="flex-1">
         <div className="max-w-[1000px] mx-auto">
           <h2 className="section-title text-sm">Project</h2>
           <div className="flex flex-col-reverse sm:flex-row">
@@ -47,11 +50,16 @@ const Single = () => {
               </p>
             </article>
             <aside className="py-4 sm:ml-4 sm:min-w-[200px] cursor-default">
-              <div className="p-5 rounded-lg shadow-sm shadow-[#000]">
+              <div
+                className="p-5 rounded-lg bg-white dark:bg-[var(--dark-secondary)]"
+                style={{ boxShadow: 'var(--box-shadow-extra)' }}
+              >
                 <h4>Technologies</h4>
                 <ul className="list-disc list-inside leading-8 mt-2">
                   {techStack.map((item, index) => (
-                    <li key={index}>{item}</li>
+                    <li key={index} className="dark:text-white">
+                      {item}
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -59,8 +67,8 @@ const Single = () => {
           </div>
         </div>
       </section>
-      <BannerOverlay3 />
+      <BannerOverlay />
     </main>
   );
 };
-export default Single;
+export default SingleWork;

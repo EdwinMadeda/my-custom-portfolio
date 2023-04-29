@@ -14,9 +14,8 @@ const Testimonials = () => {
   return (
     <section
       name="testimonials"
-      className={`py-10 bg-[var(--bg-gray)] ${
-        TESTIMONIALS.length > 0 ? 'block' : 'hidden'
-      }`}
+      className={`py-10 ${TESTIMONIALS.length > 0 ? 'block' : 'hidden'}`}
+      /*bg-[var(--bg-gray)]*/
     >
       <div className="section-container">
         <h2 className="section-title">Testimonials</h2>

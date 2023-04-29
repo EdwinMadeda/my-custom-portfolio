@@ -7,22 +7,27 @@ const Home = () => {
     <section
       name="home"
       className="
-      bg-center bg-fixed bg-cover bg-no-repeat full-screen"
+      bg-center bg-fixed bg-cover bg-no-repeat h-full flex flex-col"
     >
-      <div className="section-container justify-evenly items-start">
-        <p className="mt-11 text-sm text-[var(--color-primary)] font-normal uppercase my-2 leading-7">
+      <div className="section-container h-full items-start">
+        <p
+          className="mt-11 text-sm 
+        text-[var(--color-primary)] dark:text-[var(--color-primary)] 
+        font-normal uppercase my-2 leading-7"
+        >
           Let's build something together
         </p>
-        <h1 className="text-4xl sm:text-5xl md:text-5xl mb-2 leading-10">
+        <h1 className="text-4xl sm:text-5xl md:text-5xl mb-2 leading-10 dark:text-white">
           Hi, I'm Edwin Madeda
         </h1>
-        <h2 className="text-4xl sm:text-5xl md:text-5xl leading-10">
+        <h2 className="text-4xl sm:text-5xl md:text-5xl leading-10 dark:text-white">
           A Frontend Developer
         </h2>
-        <p className="py-5 max-w-[700px]">
+        <p className="py-5 max-w-[700px] md:min-h-[10vh]">
           I specialize in building exceptional digital experiences. Currently,
           I’m focused on building responsive web applications.
         </p>
+
         <Button containerClass="group mt-5 mb-10" to="work">
           View Work
           <BsFillArrowRightCircleFill className="text-xl ml-4 group-hover:rotate-90 transition-all duration-500 ease-in-out" />

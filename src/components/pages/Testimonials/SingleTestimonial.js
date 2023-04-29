@@ -5,7 +5,7 @@ const SingleTestimonial = ({ testimonial, setSelect, isShorthand = true }) => {
   const { avatar, name, about, msg } = testimonial;
   return (
     <div
-      className={`bg-white rounded-lg py-7 px-8 w-full ${
+      className={`bg-white dark:bg-[var(--dark-secondary)] rounded-lg py-7 px-8 w-full ${
         isShorthand ? 'h-full' : ''
       } overflow-hidden 
       flex flex-col justify-start items-start`}

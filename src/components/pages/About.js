@@ -1,6 +1,6 @@
 const About = () => {
   return (
-    <section name="about" className="bg-[var(--bg-white-alt)]">
+    <section name="about" className="" /*bg-[var(--bg-white-alt)] #002242*/>
       <div className="section-container">
         <div>
           <h3 className="section-title">About</h3>

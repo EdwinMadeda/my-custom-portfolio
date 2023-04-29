@@ -1,13 +1,14 @@
-const HamburgerIcon = ({ isActive, setIsActive }) => {
+const HamburgerIcon = ({ isActive, setIsActive, className }) => {
   return (
     <div
       className={`md:hidden relative w-6 h-[18px] cursor-pointer select-none group ${
         isActive ? 'js-is-active' : ''
-      }`}
+      } ${className}`}
       onClick={() => setIsActive(!isActive)}
     >
       <span
-        className="absolute w-[50%] h-[2.5px] bg-[var(--color-primary2)] rounded-l
+        className="absolute w-[50%] h-[2.5px] 
+        bg-[var(--color-primary2)] dark:bg-white rounded-l
         translate-x-0 translate-y-0 
         group-[.js-is-active]:rotate-45
         group-[.js-is-active]:top-[26%]
@@ -17,7 +18,8 @@ const HamburgerIcon = ({ isActive, setIsActive }) => {
         ease-in-out"
       ></span>
       <span
-        className="absolute w-[50%] h-[2.5px] bg-[var(--color-primary2)] rounded-l
+        className="absolute w-[50%] h-[2.5px] 
+        bg-[var(--color-primary2)] dark:bg-white rounded-l
         translate-x-0 -translate-y-[50%] top-[50%]
         group-[.js-is-active]:-translate-x-full
         group-[.js-is-active]:opacity-0
@@ -26,7 +28,8 @@ const HamburgerIcon = ({ isActive, setIsActive }) => {
         ease-in-out"
       ></span>
       <span
-        className="absolute w-[50%] h-[2.5px] bg-[var(--color-primary2)] rounded-l
+        className="absolute w-[50%] h-[2.5px] 
+        bg-[var(--color-primary2)] dark:bg-white rounded-l
         translate-x-0 -translate-y-full top-full
         group-[.js-is-active]:-rotate-45
         group-[.js-is-active]:top-[75%]
@@ -38,7 +41,8 @@ const HamburgerIcon = ({ isActive, setIsActive }) => {
       {/*left side*/}
 
       <span
-        className="absolute w-[50%] h-[2.5px] bg-[var(--color-primary2)] left-[50%] rounded-r
+        className="absolute w-[50%] h-[2.5px] 
+        bg-[var(--color-primary2)] dark:bg-white left-[50%] rounded-r
         translate-x-0 translate-y-0
         group-[.js-is-active]:-rotate-45
         group-[.js-is-active]:top-[26%]
@@ -48,7 +52,8 @@ const HamburgerIcon = ({ isActive, setIsActive }) => {
         ease-in-out"
       ></span>
       <span
-        className="absolute w-[50%] h-[2.5px] bg-[var(--color-primary2)] left-[50%] rounded-r
+        className="absolute w-[50%] h-[2.5px] 
+        bg-[var(--color-primary2)] dark:bg-white left-[50%] rounded-r
         translate-x-0 -translate-y-[50%] top-[50%]
         group-[.js-is-active]:translate-x-full
         group-[.js-is-active]:opacity-0
@@ -57,7 +62,8 @@ const HamburgerIcon = ({ isActive, setIsActive }) => {
         ease-in-out"
       ></span>
       <span
-        className="absolute w-[50%] h-[2.5px] bg-[var(--color-primary2)] left-[50%] rounded-r
+        className="absolute w-[50%] h-[2.5px] 
+        bg-[var(--color-primary2)] dark:bg-white left-[50%] rounded-r
         translate-x-0 -translate-y-full top-full
         group-[.js-is-active]:rotate-45
         group-[.js-is-active]:top-[75%]

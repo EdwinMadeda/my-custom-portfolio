@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import Layout from './layouts/Layout';
 import Landing from './layouts/Landing';
-import SingleWork from './components/pages/Works/Single';
+import SingleWork from './components/pages/Works/SingleWork';
 
 const App = () => {
   return (

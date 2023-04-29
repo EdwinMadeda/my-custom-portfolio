@@ -1,4 +1,6 @@
+import { useContext } from 'react';
 import FormControl from '.';
+import Store from '../../contexts/Store';
 
 const InputText = ({
   type = 'text',
@@ -13,6 +15,8 @@ const InputText = ({
   rules = {},
   className,
 }) => {
+  const { setThemeVariant } = useContext(Store);
+
   return (
     <FormControl
       name={name}
@@ -28,10 +32,14 @@ const InputText = ({
         name={name}
         placeholder={labelVisible ? placeholder : label}
         style={{
-          background: 'rgba(255, 255, 255, 0.5)',
+          background: setThemeVariant({
+            light: 'rgba(255, 255, 255, 0.5)',
+            dark: 'rgba(0, 0, 0, 0.2)',
+          }),
           boxShadow: 'var(--box-shadow-extra)',
         }}
-        className="px-3 py-3  w-full rounded accent-[var(--color-accent)] peer
+        className="px-3 py-3 w-full rounded text-[var(--color-heading)] dark:text-white outline-none 
+        border-2 border-transparent focus:border-[var(--color-accent)] peer
          focus:placeholder:text-transparent"
         {...register(name, rules)}
       />

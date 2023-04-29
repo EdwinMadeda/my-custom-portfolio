@@ -63,7 +63,8 @@ export const Button = ({
   to = '',
 }) => {
   containerClass = `border-[var(--color-primary)] before:bg-transparent after:bg-[var(--color-primary)] ${containerClass}`;
-  linkClass = `text-white group-hover/button:text-[var(--dark)] ${linkClass}`;
+  linkClass = `text-white group-hover/button:text-[var(--dark)] 
+              group-hover/button:dark:text-white  ${linkClass}`;
 
   return (
     <ButtonTemplate {...{ children, onClick, containerClass, linkClass, to }} />

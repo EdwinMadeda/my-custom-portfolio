@@ -5,6 +5,8 @@ import InputText from '../FormControl/InputText';
 import InputTextArea from '../FormControl/InputTextArea';
 import InputTel from '../FormControl/InputTel';
 import axios from 'axios';
+import { useContext } from 'react';
+import Store from '../../contexts/Store';
 
 const Contact = () => {
   const { REACT_APP_GET_FORM_URL } = process.env;
@@ -32,15 +34,20 @@ const Contact = () => {
       .catch((error) => console.log(error));
   };
 
+  const { setThemeVariant } = useContext(Store);
+
   return (
-    <section name="contact" className="py-10 bg-[var(--bg-gray)]">
+    <section name="contact" className="" /*py-10 bg-[var(--bg-gray)]*/>
       <div className="section-container items-start">
         <h2 className="section-title">Contact</h2>
         <form
           onSubmit={(e) => e.preventDefault()}
-          className="rounded p-10"
+          className="rounded p-10 mt-3"
           style={{
-            background: 'rgba(255, 255, 255, 0.5)',
+            background: setThemeVariant({
+              light: 'rgba(255, 255, 255, 0.8)',
+              dark: 'rgba(0, 0, 0, 0.2)',
+            }),
             boxShadow: 'var(--box-shadow-extra)',
           }}
           id="js-contact-form"
