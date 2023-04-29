@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form';
-import Button from '../Button';
+import { Button } from '../Button';
+
 import InputText from '../FormControl/InputText';
 import InputTextArea from '../FormControl/InputTextArea';
 import InputTel from '../FormControl/InputTel';
@@ -136,7 +137,7 @@ const Contact = () => {
                 required: 'Message is required',
               }}
             />
-            <div className="mt-4">
+            <div className="mt-4 col-span-2">
               <Button className="inline-flex" onClick={handleSubmit(onSubmit)}>
                 Send Message
               </Button>

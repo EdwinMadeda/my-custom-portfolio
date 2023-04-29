@@ -1,10 +1,9 @@
-import { TECHNOLOGIES } from '../../utils/constants';
+import { useContext } from 'react';
+
+import Store from '../../contexts/Store';
 
 const Skills = () => {
-  const currentSkill = ['HTML', 'CSS', 'JavaScript', 'React', 'Tailwind'];
-  const technologies = TECHNOLOGIES.filter(({ label }) =>
-    currentSkill.find((item) => item === label)
-  );
+  const { SKILLS } = useContext(Store);
 
   return (
     <>
@@ -15,7 +14,7 @@ const Skills = () => {
             These are the technologies I've worked with
           </h3>
           <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-5 text-center py-5">
-            {technologies.map(({ label, img }) => (
+            {SKILLS.map(({ label, img }) => (
               <div
                 key={label}
                 className="hover:scale-110 duration-500 bg-white rounded-lg p-5 

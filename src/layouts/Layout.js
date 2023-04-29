@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import Header from '../components/pages/Header';
 import { Outlet } from 'react-router-dom';
+import { createContext } from 'react';
+import { PageScrollProvider } from '../contexts/PageScrollContext';
+import { StoreProvider } from '../contexts/Store';
+import BannerOverlay3 from '../components/BannerOverlay3';
 
 const Layout = () => {
   document.documentElement.classList[
@@ -17,13 +21,15 @@ const Layout = () => {
   };
 
   return (
-    <>
-      <Header />
-      <main>
-        <Outlet />
-      </main>
-      <div className="bg-[url(./assets/images/banner-1.JPG)] fixed h-full w-full bg-cover bg-center bg-no-repeat dark:hidden"></div>
-    </>
+    <PageScrollProvider>
+      <StoreProvider>
+        <Header />
+        <>
+          <Outlet />
+          <BannerOverlay3 />
+        </>
+      </StoreProvider>
+    </PageScrollProvider>
   );
 };
 
