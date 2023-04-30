@@ -1,8 +1,7 @@
 import { useContext } from 'react';
 import { useState } from 'react';
-import { Link } from 'react-scroll';
+import { NavLink } from 'react-router-dom';
 import PageScroll from '../../../contexts/PageScrollContext';
-import { useNavigate } from 'react-router-dom';
 import Store from '../../../contexts/Store';
 
 const NavLinks = ({
@@ -16,19 +15,19 @@ const NavLinks = ({
   const { TESTIMONIALS } = useContext(Store);
 
   const [links, setLinks] = useState([
-    { label: 'Home', to: 'home', isActive: true, domLink: '/' },
-    { label: 'About', to: 'about', isActive: false, domLink: '/' },
-    { label: 'Skills', to: 'skills', isActive: false, domLink: '/' },
-    { label: 'Works', to: 'works', isActive: false, domLink: '/' },
-    { label: 'Contact', to: 'contact', isActive: false, domLink: '/' },
+    { label: 'Home', anchor: 'home', isActive: true, domLink: '/' },
+    { label: 'About', anchor: 'about', isActive: false, domLink: '/' },
+    { label: 'Skills', anchor: 'skills', isActive: false, domLink: '/' },
+    { label: 'Works', anchor: 'works', isActive: false, domLink: '/' },
     TESTIMONIALS.length > 0
       ? {
           label: 'Testimonials',
-          to: 'testimonials',
+          anchor: 'testimonials',
           isActive: false,
           domLink: '/',
         }
       : {},
+    { label: 'Contact', anchor: 'contact', isActive: false, domLink: '/' },
   ]);
   const onSetLinks = (label) => {
     setTimeout(() => {
@@ -41,28 +40,29 @@ const NavLinks = ({
     }, 300);
   };
 
-  const { offset, smooth, duration } = useContext(PageScroll);
-  const navigate = useNavigate();
+  const { navigateAndScroll } = useContext(PageScroll);
 
   return (
     <ul className={containerClass()} style={containerStyle}>
-      {links.map(({ label, to, isActive, domLink }) => (
+      {links.map(({ label, anchor, isActive, domLink }) => (
         <li key={label} className={linkContainerClass && linkContainerClass()}>
-          <Link
+          <NavLink
             data-hover={label}
             className={`${linkClass(isActive)}`}
             onClick={() => {
-              navigate(domLink);
-              onSetLinks(label);
-              onClick && onClick();
+              navigateAndScroll({
+                anchor,
+                domLink,
+                callback: () => {
+                  onSetLinks(label);
+                  onClick && onClick();
+                },
+              });
             }}
-            to={to}
-            offset={offset}
-            smooth={smooth}
-            duration={duration}
+            to={domLink}
           >
             <span className={linkTextClass(isActive)}>{label}</span>
-          </Link>
+          </NavLink>
         </li>
       ))}
     </ul>

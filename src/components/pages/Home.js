@@ -28,7 +28,7 @@ const Home = () => {
           I’m focused on building responsive web applications.
         </p>
 
-        <Button containerClass="group mt-5 mb-10" to="work">
+        <Button containerClass="group mt-5 mb-10" anchor="works" domLink="/">
           View Work
           <BsFillArrowRightCircleFill className="text-xl ml-4 group-hover:rotate-90 transition-all duration-500 ease-in-out" />
         </Button>

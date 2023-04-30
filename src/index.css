@@ -7,6 +7,7 @@
   --color-primary2: #232323;
   --color-secondary: #00c0ff;
   --color-accent: #992884a3;
+  --color-accent-light: #b22c99;
   --color-heading: #202942;
   --color-heading2: #202942cc;
   --color-paragraph: #666666;
@@ -87,7 +88,7 @@
   }
 
   #iti-1__country-listbox {
-    @apply rounded mt-[2px];
+    @apply rounded mt-[2px] dark:bg-[var(--dark-secondary)] dark:text-white dark:border-[var(--dark)];
     background: rgba(255, 255, 255, 0.95);
   }
   .iti__country {

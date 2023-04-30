@@ -1,7 +1,13 @@
 import { useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Store from '../../../contexts/Store';
 import BannerOverlay from '../../BannerOverlay';
+import { Button } from '../../Button';
+import {
+  IoArrowBackCircleSharp,
+  IoArrowBackCircleOutline,
+} from 'react-icons/io5';
+import PageScroll from '../../../contexts/PageScrollContext';
 
 const SingleWork = () => {
   const { slug } = useParams();
@@ -10,6 +16,7 @@ const SingleWork = () => {
   const { name, thumbnail, techStack } = WORKS.find(
     (item) => item.slug === slug
   );
+  const { navigateAndScroll } = useContext(PageScroll);
 
   return (
     <main className="pt-[var(--nav-height)] min-h-screen flex flex-col justify-start items-center">
@@ -17,6 +24,15 @@ const SingleWork = () => {
         className="min-h-[250px] md:min-h-[300px] 
       relative z-0 flex justify-start items-end overflow-hidden"
       >
+        <button
+          className="absolute top-8 left-10 text-white z-10 group/back-btn rounded-[50%]"
+          onClick={() => {
+            navigateAndScroll({ anchor: 'works', domLink: '/' });
+          }}
+        >
+          <IoArrowBackCircleSharp className="text-4xl group-hover/back-btn:hidden" />
+          <IoArrowBackCircleOutline className="text-4xl hidden group-hover/back-btn:block" />
+        </button>
         <div className="max-w-[1000px] mx-auto w-full">
           <h1 className="relative z-10 text-white text-2xl uppercase">
             {name}
@@ -48,6 +64,10 @@ const SingleWork = () => {
                 nulla pariatur. Excepteur sint occaecat cupidatat non proident,
                 sunt in culpa qui officia deserunt mollit anim id est laborum.
               </p>
+              <div className="inline-grid grid-cols-2 gap-5">
+                <Button containerClass="">Code</Button>
+                <Button containerClass="">Demo</Button>
+              </div>
             </article>
             <aside className="py-4 sm:ml-4 sm:min-w-[200px] cursor-default">
               <div

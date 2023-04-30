@@ -7,7 +7,7 @@ import Testimonials from '../components/pages/Testimonials';
 
 const Landing = () => {
   return (
-    <main className="pt-[var(--nav-height)] pb-7">
+    <main className="pt-[var(--nav-height)] pb-7" id="landing">
       <Home />
       <About />
       <Skills />

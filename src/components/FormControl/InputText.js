@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import FormControl from '.';
 import Store from '../../contexts/Store';
+import useInputStyling from './useInputStyling';
 
 const InputText = ({
   type = 'text',
@@ -15,7 +16,7 @@ const InputText = ({
   rules = {},
   className,
 }) => {
-  const { setThemeVariant } = useContext(Store);
+  const inputStyling = useInputStyling();
 
   return (
     <FormControl
@@ -27,20 +28,12 @@ const InputText = ({
       className={className}
     >
       <input
-        type={type}
         id={name}
+        type={type}
         name={name}
         placeholder={labelVisible ? placeholder : label}
-        style={{
-          background: setThemeVariant({
-            light: 'rgba(255, 255, 255, 0.5)',
-            dark: 'rgba(0, 0, 0, 0.2)',
-          }),
-          boxShadow: 'var(--box-shadow-extra)',
-        }}
-        className="px-3 py-3 w-full rounded text-[var(--color-heading)] dark:text-white outline-none 
-        border-2 border-transparent focus:border-[var(--color-accent)] peer
-         focus:placeholder:text-transparent"
+        style={inputStyling.style}
+        className={inputStyling.className}
         {...register(name, rules)}
       />
     </FormControl>

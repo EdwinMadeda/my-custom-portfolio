@@ -1,6 +1,4 @@
 import React from 'react';
-import { TESTIMONIALS } from '../../../utils/constants';
-import Figure from './Figure';
 
 const CustomDot2 = ({ onClick, ...rest }) => {
   const {
@@ -20,7 +18,7 @@ const CustomDot2 = ({ onClick, ...rest }) => {
         flex justify-center items-center group/custom-btn-2`}
       onClick={() => onClick()}
     >
-      <span className="bg-white group-hover/custom-btn-2:bg-[var(--color-primary)] opacity-40 w-full h-full rounded-[50%]"></span>
+      <span className="bg-white dark:bg-[var(--dark-secondary)]  group-hover/custom-btn-2:bg-[var(--color-primary)] opacity-40 w-full h-full rounded-[50%]"></span>
     </button>
   );
 };

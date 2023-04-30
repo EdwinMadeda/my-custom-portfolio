@@ -20,12 +20,12 @@ const Work = () => {
             <div
               key={id}
               className="rounded-lg w-full max-h-[300px] h-full cursor-pointer relative overflow-hidden 
-              group/thumbnail thumbnail"
+          group/thumbnail thumbnail"
               style={{ boxShadow: 'var(--box-shadow-extra)' }}
             >
               <figure
                 className="rounded-lg object-contain w-full h-full bg-white 
-              dark:bg-[var(--dark-secondary)]"
+          dark:bg-[var(--dark-secondary)]"
               >
                 <img
                   src={thumbnail}
@@ -35,13 +35,13 @@ const Work = () => {
               </figure>
               <div
                 className="absolute bottom-0  opacity-0 rounded-lg h-full w-full
-                 thumbnail__Overlay"
+             thumbnail__Overlay"
                 style={{ background: 'rgba(4, 8, 54, 0.316)' }}
               ></div>
               <div
                 className="absolute bottom-0 opacity-0 rounded-lg h-full w-full z-10 flex flex-col justify-center items-center -translate-y-[10%] 
-                group-hover/thumbnail:translate-y-0 group-hover/thumbnail:opacity-100
-                transition-all duration-500 ease-in thumbnail__Overlay--content"
+            group-hover/thumbnail:translate-y-0 group-hover/thumbnail:opacity-100
+            transition-all duration-500 ease-in thumbnail__Overlay--content"
               >
                 <div className="p-3">
                   <h3 className="text-xl text-white text-center uppercase p-1">
@@ -51,9 +51,7 @@ const Work = () => {
                     {techStack[0]}
                   </h4>
                 </div>
-                <ButtonLight to={`works/${slug}`} linkType={'dom'}>
-                  More Info
-                </ButtonLight>
+                <ButtonLight domLink={`/works/${slug}`}>More Info</ButtonLight>
               </div>
             </div>
           ))}

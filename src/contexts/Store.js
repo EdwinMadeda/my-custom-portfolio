@@ -18,7 +18,6 @@ import Marivi_Pazos from '../assets/images/testimonial_avatars/marivi-pazos-cvpk
 // import Seth_Doyle from '../assets/images/testimonial_avatars/seth-doyle-vmBik4xv27s-unsplash.jpg';
 
 import workImg from '../assets/images/works-thumbnails/workImg.jpeg';
-import useTheme from '../customHooks/useTheme';
 
 const SKILLS = [
   { label: 'HTML', img: HTML },

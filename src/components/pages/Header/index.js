@@ -10,7 +10,7 @@ import Store from '../../../contexts/Store';
 const Header = () => {
   const [isHamburgerActive, setIsHamburgerActive] = useState(false);
   const [isNavSticky, setIsNavSticky] = useState(false);
-  const { THEME, dispatch, setThemeVariant } = useContext(Store);
+  const { dispatch, setThemeVariant } = useContext(Store);
 
   useEffect(() => {
     const stickNavBar = () => {

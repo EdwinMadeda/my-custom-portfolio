@@ -14,7 +14,7 @@ const FormControl = ({
       className={`flex flex-col-reverse justify-center items-start w-full ${className}`}
     >
       <p
-        className={`text-[red] text-sm p-1  ${
+        className={`text-[red] dark:text-[red] text-sm p-2  ${
           Boolean(errors[name]) ? 'block' : 'hidden'
         }`}
       >
