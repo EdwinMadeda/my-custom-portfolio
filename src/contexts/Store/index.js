@@ -1,23 +1,57 @@
 import { createContext, useEffect, useReducer } from 'react';
-import HTML from '../assets/images/html.png';
-import CSS from '../assets/images/css.png';
-import JavaScript from '../assets/images/javascript.png';
-import React from '../assets/images/react.png';
-import Node from '../assets/images/node.png';
-import FireBase from '../assets/images/firebase.png';
-import GitHub from '../assets/images/github.png';
-import Tailwind from '../assets/images/tailwind.png';
-import Mongo from '../assets/images/mongo.png';
+import HTML from '../../assets/images/html.png';
+import CSS from '../../assets/images/css.png';
+import JavaScript from '../../assets/images/javascript.png';
+import React from '../../assets/images/react.png';
+import Node from '../../assets/images/node.png';
+import FireBase from '../../assets/images/firebase.png';
+import GitHub from '../../assets/images/github.png';
+import Tailwind from '../../assets/images/tailwind.png';
+import Mongo from '../../assets/images/mongo.png';
 
-import Ayo_Ogunseinde from '../assets/images/testimonial_avatars/ayo-ogunseinde-sibVwORYqs0-unsplash.jpg';
-import Brooke_Cagle from '../assets/images/testimonial_avatars/brooke-cagle-Nm70URdtf3c-unsplash.jpg';
-import Christopher_Campbell from '../assets/images/testimonial_avatars/christopher-campbell-rDEOVtE7vOs-unsplash.jpg';
-import Edward_Cisneros from '../assets/images/testimonial_avatars/edward-cisneros-_H6wpor9mjs-unsplash.jpg';
-import Erik_Lucatero from '../assets/images/testimonial_avatars/erik-lucatero-d2MSDujJl2g-unsplash.jpg';
-import Marivi_Pazos from '../assets/images/testimonial_avatars/marivi-pazos-cvpk5Y4ZWUs-unsplash.jpg';
+import Ayo_Ogunseinde from '../../assets/images/testimonial_avatars/ayo-ogunseinde-sibVwORYqs0-unsplash.jpg';
+import Brooke_Cagle from '../../assets/images/testimonial_avatars/brooke-cagle-Nm70URdtf3c-unsplash.jpg';
+import Christopher_Campbell from '../../assets/images/testimonial_avatars/christopher-campbell-rDEOVtE7vOs-unsplash.jpg';
+import Edward_Cisneros from '../../assets/images/testimonial_avatars/edward-cisneros-_H6wpor9mjs-unsplash.jpg';
+import Erik_Lucatero from '../../assets/images/testimonial_avatars/erik-lucatero-d2MSDujJl2g-unsplash.jpg';
+import Marivi_Pazos from '../../assets/images/testimonial_avatars/marivi-pazos-cvpk5Y4ZWUs-unsplash.jpg';
 // import Seth_Doyle from '../assets/images/testimonial_avatars/seth-doyle-vmBik4xv27s-unsplash.jpg';
 
-import workImg from '../assets/images/works-thumbnails/workImg.jpeg';
+import workImg from '../../assets/images/works-thumbnails/workImg.jpeg';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { HiOutlineMail } from 'react-icons/hi';
+import { BsFillPersonLinesFill } from 'react-icons/bs';
+
+const SOCIAL_LINKS = [
+  {
+    label: 'LinkedIn',
+    bgColor: 'bg-blue-600',
+    textColor: 'text-blue-600',
+    IconEl: ({ size }) => <FaLinkedin size={size} />,
+    to: '',
+  },
+  {
+    label: 'Github',
+    bgColor: 'bg-[#333333]',
+    textColor: 'text-[#333333]',
+    IconEl: ({ size }) => <FaGithub size={size} />,
+    to: '',
+  },
+  {
+    label: 'Email',
+    bgColor: 'bg-[#6fc2b0]',
+    textColor: 'text-[#6fc2b0]',
+    IconEl: ({ size }) => <HiOutlineMail size={size} />,
+    to: 'mailto:edwinmadeda@gmail.com',
+  },
+  {
+    label: 'Resume',
+    bgColor: 'bg-[#565f69]',
+    textColor: 'text-[#565f69]',
+    IconEl: ({ size }) => <BsFillPersonLinesFill size={size} />,
+    to: '',
+  },
+];
 
 const SKILLS = [
   { label: 'HTML', img: HTML },
@@ -135,6 +169,7 @@ const reducer = (state, action) => {
 export const StoreProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, {
     THEME,
+    SOCIAL_LINKS,
     SKILLS,
     WORKS,
     TESTIMONIALS,

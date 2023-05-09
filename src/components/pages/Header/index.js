@@ -2,7 +2,6 @@ import Logo from '../../Logo';
 import { useContext, useEffect, useState } from 'react';
 import HamburgerIcon from './HamburgerIcon';
 import NavLinks from './NavLinks';
-import { SocialIconsDesktop } from '../../SocialIcons';
 import { BsFillMoonFill, BsSun } from 'react-icons/bs';
 
 import Store from '../../../contexts/Store';
@@ -29,17 +28,19 @@ const Header = () => {
   return (
     <header>
       <nav
-        className={`flex justify-between items-center h-[var(--nav-height)] md:h-[var(--nav-height)] fixed top-0 left-1/2 -translate-x-1/2 w-full z-20 bg-center bg-fixed bg-cover bg-no-repeat
+        className={`flex justify-between items-center h-[var(--nav-height)] fixed top-0 left-1/2 -translate-x-1/2 w-full z-20 bg-center bg-fixed bg-cover bg-no-repeat
+        backdrop-blur-sm
+      
         ${
           isNavSticky || isHamburgerActive
-            ? 'bg-white dark:bg-[var(--dark-secondary)]'
+            ? 'bg-[var(--bg-white-translucent)] dark:bg-[var(--dark-translucent)]'
             : 'bg-transparent'
         }
         
         `}
       >
         <div className="flex justify-between items-center mx-auto px-5 md:px-10 lg:px-0 py-2 md:py-5 h-full w-full max-w-[1000px]">
-          <Logo className="flex-1 order-1 sm:order-[unset]" />
+          <Logo className="flex-1 order-1 sm:order-[unset] mr-5" />
           <HamburgerIcon
             isActive={isHamburgerActive}
             setIsActive={(status) => setIsHamburgerActive(status)}
@@ -81,7 +82,7 @@ const Header = () => {
 
           <NavLinks
             containerClass={() =>
-              'hidden md:flex md:space-x-6 lg:space-x-11 font-bold'
+              'hidden md:flex md:space-x-5 lg:space-x-11 font-bold'
             }
             linkClass={(isActive) => `nav-link block relative cursor-pointer 
             
@@ -101,7 +102,7 @@ const Header = () => {
             }
           />
           <button
-            className="order-2 sm:order-[unset] mx-10 sm:mr-0"
+            className="order-2 sm:order-[unset] mx-10 md:mr-0"
             onClick={() => dispatch({ type: 'resetTheme' })}
           >
             {setThemeVariant({
@@ -113,7 +114,6 @@ const Header = () => {
           </button>
         </div>
       </nav>
-      <SocialIconsDesktop />
     </header>
   );
 };

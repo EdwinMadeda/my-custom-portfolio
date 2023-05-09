@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Store from '../../../contexts/Store';
 import BannerOverlay from '../../BannerOverlay';
 import { Button } from '../../Button';
@@ -8,6 +8,7 @@ import {
   IoArrowBackCircleOutline,
 } from 'react-icons/io5';
 import PageScroll from '../../../contexts/PageScrollContext';
+import PageWrap from '../../PageWrap';
 
 const SingleWork = () => {
   const { slug } = useParams();
@@ -24,16 +25,16 @@ const SingleWork = () => {
         className="min-h-[250px] md:min-h-[300px] 
       relative z-0 flex justify-start items-end overflow-hidden"
       >
-        <button
-          className="absolute top-8 left-10 text-white z-10 group/back-btn rounded-[50%]"
-          onClick={() => {
-            navigateAndScroll({ anchor: 'works', domLink: '/' });
-          }}
-        >
-          <IoArrowBackCircleSharp className="text-4xl group-hover/back-btn:hidden" />
-          <IoArrowBackCircleOutline className="text-4xl hidden group-hover/back-btn:block" />
-        </button>
-        <div className="max-w-[1000px] mx-auto w-full">
+        <div className="max-w-[1000px] mx-auto w-full flex justify-start items-center">
+          <button
+            className=" relative text-white z-10 group/back-btn rounded-[50%] mr-4"
+            onClick={() => {
+              navigateAndScroll({ anchor: 'works', domLink: '/' });
+            }}
+          >
+            <IoArrowBackCircleSharp className="text-4xl group-hover/back-btn:hidden" />
+            <IoArrowBackCircleOutline className="text-4xl hidden group-hover/back-btn:block" />
+          </button>
           <h1 className="relative z-10 text-white text-2xl uppercase">
             {name}
           </h1>
@@ -49,7 +50,7 @@ const SingleWork = () => {
       </section>
       <section className="flex-1">
         <div className="max-w-[1000px] mx-auto">
-          <h2 className="section-title text-sm">Project</h2>
+          <h3 className="section-title text-sm pb-2">Project</h3>
           <div className="flex flex-col-reverse sm:flex-row">
             <article>
               <h3 className="section-sub-title font-extrabold text-3xl">
@@ -91,4 +92,4 @@ const SingleWork = () => {
     </main>
   );
 };
-export default SingleWork;
+export default PageWrap(SingleWork);

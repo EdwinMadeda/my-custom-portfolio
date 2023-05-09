@@ -13,12 +13,12 @@ const ButtonTemplate = ({
 }) => {
   const { navigateAndScroll } = useContext(PageScroll);
 
-  linkClass = `font-bold leading-6 capitalize inline-flex justify-center items-center text-center align-middle select-none py-[7px] px-6 md:py-[10px] lg:px-8
+  linkClass = `font-bold leading-6 capitalize inline-flex justify-center items-center text-center align-middle select-none py-[0.4rem] px-4 md:py-[0.5rem] lg:px-5
   ${linkClass}`;
 
   return (
     <button
-      className={`rounded-full border-solid border-2
+      className={`rounded-full border-solid border-2 outline-none
       overflow-hidden transition-all duration-300  relative z-10
 
       before:absolute before:right-0 before:bottom-0 before:w-0 before:h-full before:rounded-full 

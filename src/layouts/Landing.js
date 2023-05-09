@@ -4,6 +4,7 @@ import Skills from '../components/pages/Skills';
 import Work from '../components/pages/Works';
 import Contact from '../components/pages/Contact';
 import Testimonials from '../components/pages/Testimonials';
+import PageWrap from '../components/PageWrap';
 
 const Landing = () => {
   return (
@@ -17,4 +18,5 @@ const Landing = () => {
     </main>
   );
 };
-export default Landing;
+
+export default PageWrap(Landing);

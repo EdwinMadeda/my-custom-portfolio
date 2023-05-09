@@ -39,8 +39,8 @@ export default defineType({
       type: 'object',
       fields: [
         defineField({
-          name: 'subTitle',
-          title: 'Sub Title',
+          name: 'welcomeMsg',
+          title: 'Welcome Message',
           type: 'text',
         }),
         defineField({
@@ -105,6 +105,7 @@ export default defineType({
                   {title: 'Slack', value: 'Slack'},
                   {title: 'StackOverflow', value: 'StackOverflow'},
                   {title: 'Email', value: 'Email'},
+                  {title: 'Resume', value: 'Resume'},
                 ],
               },
             }),
@@ -133,11 +134,6 @@ export default defineType({
               type: 'string',
             },
           ],
-        }),
-        defineField({
-          name: 'address',
-          title: 'Address',
-          type: 'string',
         }),
       ],
     }),

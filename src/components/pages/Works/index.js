@@ -51,7 +51,7 @@ const Work = () => {
                     {techStack[0]}
                   </h4>
                 </div>
-                <ButtonLight domLink={`/works/${slug}`}>More Info</ButtonLight>
+                <ButtonLight domLink={`/${slug}`}>Learn More</ButtonLight>
               </div>
             </div>
           ))}
