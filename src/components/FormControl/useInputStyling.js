@@ -11,7 +11,7 @@ const useInputStyling = () => {
       }),
       boxShadow: 'var(--box-shadow-extra)',
     },
-    className: `px-3 py-3 w-full rounded text-[var(--color-heading)] dark:text-white outline-none 
+    className: `px-3 py-2 lg:py-[0.65rem] w-full rounded text-[var(--color-heading)] dark:text-white outline-none 
       border-2 border-transparent focus:border-[var(--color-accent)] 
       dark:focus:border-[var(--color-accent-light)] peer
        focus:placeholder:text-transparent`,

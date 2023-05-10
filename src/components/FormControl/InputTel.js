@@ -1,6 +1,5 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import FormControl from '.';
-import Store from '../../contexts/Store';
 import useInputStyling from './useInputStyling';
 
 const InputTel = ({

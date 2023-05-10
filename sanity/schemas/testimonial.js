@@ -15,7 +15,7 @@ export default defineType({
       title: 'Slug',
       type: 'slug',
       options: {
-        source: 'title',
+        source: 'name',
         maxLength: 96,
       },
     }),
@@ -33,14 +33,14 @@ export default defineType({
       type: 'object',
       fields: [
         defineField({
-          name: 'label',
-          title: 'Label',
+          name: 'context',
+          title: 'Context',
           description: 'e.g Country, Position',
           type: 'string',
         }),
         defineField({
-          name: 'content',
-          title: 'Content',
+          name: 'text',
+          title: 'Text',
           type: 'string',
         }),
       ],

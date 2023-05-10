@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { scroller } from 'react-scroll';
+import { animateScroll, scroller } from 'react-scroll';
 
 const PageScroll = createContext();
 
@@ -20,7 +20,7 @@ export const PageScrollProvider = ({ children }) => {
       scroller.scrollTo(anchor, {
         ...initialValues,
       });
-    }
+    } else animateScroll.scrollToTop();
 
     callback && callback();
   };

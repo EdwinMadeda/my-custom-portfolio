@@ -1,6 +1,4 @@
-import { useContext } from 'react';
 import FormControl from '.';
-import Store from '../../contexts/Store';
 import useInputStyling from './useInputStyling';
 
 const InputTextArea = ({

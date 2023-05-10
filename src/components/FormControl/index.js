@@ -1,3 +1,5 @@
+import ErrorMsg from '../ErrorMsg';
+
 const FormControl = ({
   id = '',
   name,
@@ -13,13 +15,9 @@ const FormControl = ({
       id={id}
       className={`flex flex-col-reverse justify-center items-start w-full ${className}`}
     >
-      <p
-        className={`text-[red] dark:text-[red] text-sm p-2  ${
-          Boolean(errors[name]) ? 'block' : 'hidden'
-        }`}
-      >
+      <ErrorMsg visible={Boolean(errors[name])}>
         {errors[name]?.message}
-      </p>
+      </ErrorMsg>
 
       {children}
       <label

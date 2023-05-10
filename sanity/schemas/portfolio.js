@@ -27,6 +27,13 @@ export default defineType({
               type: 'block',
               styles: [{title: 'Normal', value: 'normal'}],
               lists: [],
+              marks: {
+                decorators: [
+                  {title: 'Strong', value: 'strong'},
+                  {title: 'Emphasis', value: 'em'},
+                  {title: 'Highlight', value: 'highlight'},
+                ],
+              },
             },
           ],
         }),
@@ -39,9 +46,17 @@ export default defineType({
       type: 'object',
       fields: [
         defineField({
-          name: 'welcomeMsg',
-          title: 'Welcome Message',
-          type: 'text',
+          name: 'snippet',
+          title: 'Snippet',
+          type: 'array',
+          of: [
+            {
+              title: 'Block',
+              type: 'block',
+              styles: [{title: 'Normal', value: 'normal'}],
+              lists: [],
+            },
+          ],
         }),
         defineField({
           name: 'content',
@@ -53,6 +68,13 @@ export default defineType({
               type: 'block',
               styles: [{title: 'Normal', value: 'normal'}],
               lists: [],
+              marks: {
+                decorators: [
+                  {title: 'Strong', value: 'strong'},
+                  {title: 'Emphasis', value: 'em'},
+                  {title: 'Highlight', value: 'highlight'},
+                ],
+              },
             },
           ],
         }),
@@ -89,35 +111,18 @@ export default defineType({
       type: 'array',
       of: [
         {
-          type: 'object',
-          fields: [
-            defineField({
-              name: 'label',
-              type: 'string',
-              options: {
-                list: [
-                  {title: 'LinkedIn', value: 'LinkedIn'},
-                  {title: 'Github', value: 'Github'},
-                  {title: 'Bitbucket', value: 'Bitbucket'},
-                  {title: 'Facebook', value: 'Facebook'},
-                  {title: 'Twitter', value: 'Twitter'},
-                  {title: 'Discord', value: 'Discord'},
-                  {title: 'Slack', value: 'Slack'},
-                  {title: 'StackOverflow', value: 'StackOverflow'},
-                  {title: 'Email', value: 'Email'},
-                  {title: 'Resume', value: 'Resume'},
-                ],
-              },
-            }),
-            defineField({
-              name: 'link',
-              title: 'Link',
-              type: 'string',
-            }),
-          ],
+          type: 'reference',
+          to: {type: 'socialHandle'},
         },
       ],
       initialValue: [],
+    }),
+
+    defineField({
+      name: 'resume',
+      title: 'resume',
+      type: 'reference',
+      to: {type: 'resume'},
     }),
 
     defineField({
@@ -128,6 +133,16 @@ export default defineType({
         defineField({
           name: 'phone',
           title: 'Phone',
+          type: 'array',
+          of: [
+            {
+              type: 'string',
+            },
+          ],
+        }),
+        defineField({
+          name: 'email',
+          title: 'Email',
           type: 'array',
           of: [
             {

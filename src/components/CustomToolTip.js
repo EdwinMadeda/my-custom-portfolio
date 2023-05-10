@@ -11,7 +11,7 @@ const CustomToolTip = (props) => {
     fontSize: '0.7rem',
     fontWeight: '500',
     borderRadius: '8px',
-    boxShadow: '0 20px 50px rgba(0, 0, 0, 0.25)',
+    boxShadow: '0 5px 50px 0 rgba(0, 0, 0, 0.15)',
   };
   const { style } = props;
   return <Tooltip {...props} style={{ ...baseStyles, ...style }} />;

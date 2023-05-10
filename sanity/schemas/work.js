@@ -20,6 +20,14 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'backgroundPhoto',
+      title: 'Background Photo',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
       name: 'thumbnail',
       title: 'Thumbnail',
       type: 'image',
@@ -37,7 +45,31 @@ export default defineType({
       title: 'Tech Stack',
       description: 'Technologies Used',
       type: 'array',
-      of: [{type: 'string'}],
+      of: [
+        {
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'name',
+              title: 'Name',
+              description: 'e.g JavaScript PHP',
+              type: 'string',
+            }),
+            defineField({
+              name: 'designation',
+              title: 'Designation',
+              type: 'string',
+              options: {
+                list: [
+                  {title: 'Main highlight', value: 'mainHighlight'},
+                  {title: 'Other', value: 'other'},
+                ],
+              },
+              initialValue: 'other',
+            }),
+          ],
+        },
+      ],
     }),
     defineField({
       name: 'projectLink',

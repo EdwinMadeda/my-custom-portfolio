@@ -1,5 +1,5 @@
 :root {
-  --font-default: 'Manrope', sans-serif;
+  --font-default: 'DM Sans', 'Manrope', sans-serif;
   --dark: #040836;
   --dark-translucent: #002f4dfa;
   --dark-secondary: #002f4df1;
@@ -11,7 +11,7 @@
   --color-variant-info: #3379b7;
   --color-variant-success: #8ec572;
   --color-variant-warning: #f0ac4e;
-  --color-variant-error: #be6464;
+  --color-variant-error: #ff0000;
 
   --color-primary: #ff014f;
   --color-primary2: #232323;
@@ -29,8 +29,10 @@
   --box-shadow-extra: 0 5px 50px 0 rgba(0, 0, 0, 0.15);
 
   --bg-gradient: linear-gradient(45deg, #ff014f 20%, #992884 50%);
-  --nav-height: 70px;
-  --nav-height-mobile: 65px;
+  --nav-height: 65px;
+  --nav-height-mobile: 60px;
+
+  --section-container-width: 1100px;
 }
 
 @tailwind base;
@@ -70,25 +72,33 @@
   }
 
   .section-container {
-    @apply max-w-[1000px] mx-auto  h-full w-full flex flex-col justify-center items-center py-5;
+    @apply max-w-[var(--section-container-width)] mx-auto h-full w-full flex flex-col justify-center items-start py-5;
   }
   .section-title {
-    @apply font-black text-2xl text-[var(--color-primary)] dark:text-white uppercase px-1 pb-5;
+    @apply font-black text-2xl text-[var(--color-primary)] dark:text-white uppercase px-1 pb-4;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background: var(--bg-gradient);
     background-clip: text;
   }
+
+  .section-content {
+    @apply w-full grid grid-cols-1 gap-10 justify-start items-start;
+  }
+
   .section-sub-title {
-    @apply text-2xl dark:text-white;
+    @apply text-[1.2rem] leading-6 dark:text-white;
+  }
+
+  p {
+    @apply text-[0.95rem] leading-[1.4rem] xl:text-base  text-[var(--color-paragraph)] 
+    dark:text-[var(--color-paragraph-dark)];
   }
 
   a {
     @apply text-[#232323];
   }
-  p {
-    @apply text-[17px] text-[var(--color-paragraph)] dark:text-[var(--color-paragraph-dark)];
-  }
+
   button:active,
   .nav-link:active {
     @apply scale-90;
