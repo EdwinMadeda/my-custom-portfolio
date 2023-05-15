@@ -16,7 +16,7 @@ const Home = () => {
       className="
         bg-center bg-fixed bg-cover bg-no-repeat h-full dark:min-h-[unset] flex flex-col"
     >
-      <div className="section-container h-full items-start">
+      <div className="section-container min-h-[85vh] h-full justify-center items-start">
         <p
           className="mt-11 text-sm 
     text-[var(--color-primary)] dark:text-[var(--color-primary)] 

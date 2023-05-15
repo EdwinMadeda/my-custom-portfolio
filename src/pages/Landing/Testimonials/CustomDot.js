@@ -6,9 +6,11 @@ const CustomDot = ({ onClick, ...rest }) => {
   const { TESTIMONIALS } = useContext(Store);
 
   const {
+    // eslint-disable-next-line no-unused-vars
     onMove,
     index,
     active,
+    // eslint-disable-next-line no-unused-vars
     carouselState: { currentSlide, deviceType },
   } = rest;
   // onMove means if dragging or swiping in progress.

@@ -18,6 +18,7 @@ module.exports = {
         lemonJelly: ['LEMON_JELLY', 'cursive'],
         rainbowBridge: ['RAINBOW_BRIDGE', 'cursive'],
         roadBlast: ['ROAD_BLAST', 'serif'],
+        manrope: ['Manrope', 'sans-serif'],
       },
     },
   },

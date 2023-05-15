@@ -19,18 +19,19 @@ const Skills = () => {
           <h3 className="section-sub-title">
             These are the technologies I've worked with
           </h3>
-          <div className="w-full grid grid-cols-[auto_auto] sm:grid-cols-[auto_auto_auto_auto] gap-4 sm:gap-5 text-center">
+          <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-5 text-center">
             {SKILLS.map(({ _id, label, img }) => (
               <div
                 key={_id}
-                className="hover:scale-110 duration-500 bg-white dark:bg-[var(--dark-secondary)] rounded-lg p-5 
+                className="hover:scale-110 duration-500 bg-white dark:bg-[var(--dark-secondary)] rounded-lg
+                p-5 min-h-30 
                 flex flex-col justify-center items-center"
                 style={{ boxShadow: 'var(--box-shadow-extra)' }}
               >
                 <img
                   src={img.url}
                   alt={`${label} Icon`}
-                  className="w-[4rem] mx-auto"
+                  className="w-[3rem] mx-auto"
                 />
                 <h4 className="mt-2 cursor-default">{label}</h4>
               </div>
