@@ -31,7 +31,7 @@ const SingleTestimonial = ({ testimonial, setSelect, isShorthand = true }) => {
         {isShorthand
           ? trimStr(
               msg,
-              150,
+              200,
               <button
                 className="text-sm font-bold hover:text-[var(--color-primary)]"
                 onClick={() => setSelect(testimonial)}

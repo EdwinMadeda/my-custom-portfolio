@@ -41,7 +41,7 @@ const Header = () => {
         }
         `}
       >
-        <div className="flex justify-between items-center mx-auto px-5 md:px-10 lg:px-0 py-2 md:py-5 h-full w-full max-w-[1000px]">
+        <div className="flex justify-between items-center mx-auto px-5 md:px-10 lg:px-0 py-2 md:py-5 h-full w-full max-w-[var(--section-container-width)]">
           <Logo className="flex-1 order-1 sm:order-[unset] mr-5" />
           <HamburgerIcon
             isActive={isHamburgerActive}
@@ -105,7 +105,7 @@ const Header = () => {
           />
           <button
             className="order-2 sm:order-[unset] mx-10 md:mr-0"
-            onClick={() => dispatch({ type: 'resetTheme' })}
+            onClick={() => dispatch({ type: 'setTheme' })}
           >
             {setThemeVariant({
               light: (

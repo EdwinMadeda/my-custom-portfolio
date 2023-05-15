@@ -33,14 +33,16 @@ const SocialIconsTemplate = ({
             key={label}
             className={itemClass(bgColor, index)}
             style={{
-              boxShadow: 'rgba(149, 157, 165, 0.1) 0px 2px 2px',
+              boxShadow: `0px 1px 1px -1px rgba(0, 0, 0, 0.2),
+              0px 1px 5px 0px rgba(0, 0, 0, 0.1), 0px 1px 1px 0px rgba(0, 0, 0, 0.1)`,
             }}
           >
             <AnchorContainer
               href={urlLink}
               className={linkClass && linkClass(bgColor)}
               style={{
-                boxShadow: 'rgba(149, 157, 165, 0.2) 0px 1px 1px',
+                boxShadow: `0px 1px 1px -1px rgba(0, 0, 0, 0.2),
+                0px 1px 5px 0px rgba(0, 0, 0, 0.1), 0px 1px 1px 0px rgba(0, 0, 0, 0.1)`,
               }}
               data-tooltip-id={`social-link-${label}`}
               data-tooltip-content={label}

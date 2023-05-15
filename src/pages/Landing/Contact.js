@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { useContext, useState } from 'react';
-import { Alert, Snackbar } from '@mui/material';
 import { BsFillPhoneFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/Button';
@@ -10,6 +9,8 @@ import InputTextArea from '../../components/FormControl/InputTextArea';
 import InputTel from '../../components/FormControl/InputTel';
 import Store from '../../contexts/Store';
 import CircularSpinner from '../../components/CircularSpinner';
+
+import SnackBarContext from '../../contexts/SnackBarContext';
 
 const Contact = () => {
   const { REACT_APP_GET_FORM_URL } = process.env;
@@ -24,19 +25,9 @@ const Contact = () => {
     formState: { errors },
   } = useForm();
 
-  const initialSnackbar = {
-    open: false,
-    vertical: 'top',
-    horizontal: 'center',
-    message: '',
-  };
-  const [{ open, vertical, horizontal, message, severity }, setSnackbar] =
-    useState(initialSnackbar);
   const [status, setStatus] = useState('idle');
 
-  const closeSnackbar = () => {
-    setSnackbar(initialSnackbar);
-  };
+  const { displaySnackbar } = useContext(SnackBarContext);
 
   const onSubmit = async (data) => {
     setStatus('loading');
@@ -46,21 +37,18 @@ const Contact = () => {
         { ...data },
         { headers: { Accept: 'application/json' } }
       );
-      setSnackbar((snackbar) => ({
-        ...snackbar,
-        open: true,
-        message:
-          'Thanks for your response. Will get back to you as soon as I can',
-        severity: 'success',
-      }));
+      displaySnackbar({
+        msg: 'Thanks for your response. Will get back to you as soon as I can',
+        variant: 'success',
+      });
+
       setStatus('idle');
     } catch (error) {
-      setSnackbar((snackbar) => ({
-        ...snackbar,
-        open: true,
-        message: error.message,
-        severity: 'error',
-      }));
+      displaySnackbar({
+        msg: error.message,
+        variant: 'error',
+      });
+
       setStatus('failed');
     }
   };
@@ -89,21 +77,6 @@ const Contact = () => {
   return (
     <>
       {status === 'loading' && <CircularSpinner />}
-      <Snackbar
-        anchorOrigin={{ vertical, horizontal }}
-        key={vertical + horizontal}
-        autoHideDuration={8000}
-        open={open}
-        onClose={closeSnackbar}
-      >
-        <Alert
-          onClose={closeSnackbar}
-          {...(severity ? { severity } : {})}
-          sx={{ width: '100%', borderRadius: '10px' }}
-        >
-          {message}
-        </Alert>
-      </Snackbar>
       <section
         name="contact"
         className="dark:bg-transparent" /*bg-[var(--bg-gray)]*/

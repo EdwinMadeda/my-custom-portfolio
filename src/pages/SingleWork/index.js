@@ -58,7 +58,7 @@ const SingleWork = () => {
               })})`,
             }}
           >
-            <div className="section-container">
+            <div className="section-container min-h-[unset]">
               <div className="grid grid-cols-1 md:grid-cols-[minmax(0,_1fr)_250px] gap-8">
                 <article className="section-content gap-2 order-2 md:order-1">
                   <h3 className="section-sub-title text-2xl">Overview</h3>

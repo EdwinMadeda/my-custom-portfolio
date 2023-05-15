@@ -81,7 +81,9 @@ const reducer = (state, action) => {
         CONTACTS,
       };
     }
-
+    case 'initTheme': {
+      return { ...state, THEME: action.payload };
+    }
     case 'resetTheme': {
       const { THEME } = state;
       const selectTheme = THEME !== 'dark' ? 'dark' : 'light';
@@ -96,11 +98,9 @@ const reducer = (state, action) => {
 };
 
 const setTheme = () => {
-  document.documentElement.classList[
-    localStorage.theme === 'dark' || !('theme' in localStorage)
-      ? 'add'
-      : 'remove'
-  ]('dark');
+  const isDark = localStorage.theme === 'dark' || !('theme' in localStorage);
+  document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
+  return isDark ? 'dark' : 'light';
 };
 
 export const StoreProvider = ({ children }) => {
@@ -110,7 +110,8 @@ export const StoreProvider = ({ children }) => {
     state.THEME === 'light' ? light : state.THEME === 'dark' ? dark : '';
 
   useEffect(() => {
-    setTheme();
+    const theme = setTheme();
+    dispatch({ type: 'initTheme', payload: theme });
   }, []);
 
   useEffect(() => {
