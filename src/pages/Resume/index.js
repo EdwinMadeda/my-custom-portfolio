@@ -56,9 +56,6 @@ const Resume = () => {
         className="grid-cols-[auto_auto] sm:grid-cols-[auto_auto_auto_auto]
        bg-white dark:bg-[var(--dark-secondary)]"
       >
-        <CtrlsWrapper className="justify-self-end hidden sm:flex">
-          <BackBtn variant="dark" onClick={() => navigate('/')} />
-        </CtrlsWrapper>
         <CtrlsWrapper className="justify-self-end">
           <ZoomBtn onClick={() => setScale((scale) => scale - 0.1)}>
             <FaSearchMinus />
@@ -121,11 +118,11 @@ const Resume = () => {
         />
       </Document>
 
-      <ResumeToolBar className="grid-cols-2 w-[100%] sm:hidden">
-        <CtrlsWrapper className="justify-self-center">
+      <ResumeToolBar className="grid-cols-2 w-[100%]">
+        <CtrlsWrapper className="justify-self-center sm:justify-self-start">
           <BackBtn variant="dark" onClick={() => navigate('/')} />
         </CtrlsWrapper>
-        <CtrlsWrapper className="justify-self-center">
+        <CtrlsWrapper className="justify-self-center sm:hidden">
           <Button>
             <a
               href={`${RESUME.url}?dl=`}

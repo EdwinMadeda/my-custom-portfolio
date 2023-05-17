@@ -35,11 +35,6 @@ const SingleWork = () => {
               relative z-0 flex justify-start items-end overflow-hidden"
           >
             <div className="max-w-[var(--section-container-width)] mx-auto w-full flex justify-start items-center">
-              <BackBtn
-                onClick={() => {
-                  navigateAndScroll({ anchor: 'works', domLink: '/' });
-                }}
-              />
               <h1
                 className="relative z-10  font-black text-2xl lg:text-2xl text-white uppercase"
                 style={{ boxShadow: 'rgba(149, 157, 165, 0.1) 0px 2px 2px' }}
@@ -72,6 +67,15 @@ const SingleWork = () => {
                         <Button containerClass="mr-4">Live Demo</Button>
                         <Button containerClass="mr-4">GitHub</Button>
                       </div>
+                      <BackBtn
+                        onClick={() => {
+                          navigateAndScroll({
+                            anchor: 'works',
+                            scrollBehaviour: { smooth: false },
+                            domLink: '/',
+                          });
+                        }}
+                      />
                     </div>
                   </div>
                 </article>

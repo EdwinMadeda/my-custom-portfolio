@@ -15,22 +15,32 @@ export const PageScrollProvider = ({ children }) => {
   const navigate = useNavigate();
   const { pathname: path } = useLocation();
 
-  const scrollToAnchor = (anchor, callback) => {
+  const scrollToAnchor = (
+    anchor,
+    scrollBehaviour = initialValues,
+    callback
+  ) => {
     if (anchor) {
       scroller.scrollTo(anchor, {
         ...initialValues,
+        ...scrollBehaviour,
       });
     } else animateScroll.scrollToTop();
 
     callback && callback();
   };
 
-  const navigateAndScroll = ({ anchor, domLink = '/', callback }) => {
+  const navigateAndScroll = ({
+    anchor,
+    domLink = '/',
+    scrollBehaviour = initialValues,
+    callback,
+  }) => {
     const location = path.split('/')[1];
 
     const toggleNavigateAndScroll = async (anchor, domLink) => {
       await navigate(domLink);
-      await scrollToAnchor(anchor);
+      await scrollToAnchor(anchor, scrollBehaviour);
     };
 
     if (location === '' && anchor) scrollToAnchor(anchor, callback);
