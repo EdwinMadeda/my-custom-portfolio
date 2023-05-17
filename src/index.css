@@ -145,12 +145,14 @@
 }
 
 body {
-  font-family: var(--font-default);
+  @apply font-default text-[0.94rem] font-normal leading-[1.625rem] bg-white text-[var(--color-paragraph)]
+  bg-bannerLight dark:bg-bannerDark bg-center bg-fixed bg-cover bg-no-repeat;
+  /* font-family: var(--font-default);
   font-size: 15px;
   font-weight: 400;
   line-height: 26px;
   background: #fff;
-  color: var(--color-paragraph);
+  color: var(--color-paragraph); */
 }
 
 .Snackbar {

@@ -1,27 +1,29 @@
-import { useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import { useContext, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { PortableText } from '@portabletext/react';
 import { images, myPortableTextComponents } from '../../utils/constants';
 import { Button } from '../../components/Button';
-import BannerOverlay from '../../components/BannerOverlay';
 
 import Store from '../../contexts/Store';
 import PageScroll from '../../contexts/PageScrollContext';
 
 import PageWrap from '../../components/PageWrap';
 import BackBtn from '../../components/BackBtn';
+import Page404 from '../404';
 
 const SingleWork = () => {
   const { slug } = useParams();
   const { navigateAndScroll } = useContext(PageScroll);
   const { WORKS, setThemeVariant } = useContext(Store);
+  const navigate = useNavigate();
 
   const selectWork = WORKS?.find((item) => item.slug === slug);
   const { title, backgroundPhoto, techStack, description } = selectWork ?? {};
 
+
   return (
     <>
-      {selectWork && (
+      {selectWork ? (
         <>
           <figure className="w-full fixed top-[var(--nav-height)] left-0">
             <img
@@ -100,9 +102,8 @@ const SingleWork = () => {
               </div>
             </div>
           </section>
-          <BannerOverlay />
         </>
-      )}
+      ): <Page404/>}
     </>
   );
 };
