@@ -105,7 +105,7 @@ const Header = () => {
           />
           <button
             className="order-2 sm:order-[unset] mx-10 md:mr-0"
-            onClick={() => dispatch({ type: 'setTheme' })}
+            onClick={() => dispatch({ type: 'resetTheme' })}
           >
             {setThemeVariant({
               light: (
