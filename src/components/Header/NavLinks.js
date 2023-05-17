@@ -95,6 +95,7 @@ const NavLinks = ({
           className={`${linkContainerClass && linkContainerClass()} ${
             !visible && 'hidden'
           }`}
+          onClick={() => onClick && onClick()}
         >
           <NavLink
             data-hover={label}
@@ -105,7 +106,6 @@ const NavLinks = ({
                 domLink,
                 callback: () => {
                   onSetLinks(label);
-                  onClick && onClick();
                 },
               });
             }}
