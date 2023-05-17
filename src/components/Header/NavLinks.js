@@ -106,6 +106,7 @@ const NavLinks = ({
                 domLink,
                 callback: () => {
                   onSetLinks(label);
+                  onClick && onClick();
                 },
               });
             }}
